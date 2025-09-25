@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ffeef3;
+  color: #5a2a2a;
+  text-align: center;
+  padding: 30px;
+}
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 5px;
+  color: #ff3c6e;
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.counter {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.counter > div {
+  background: #ffd1dc;
+  border-radius: 12px;
+  padding: 15px 25px;
+  min-width: 80px;
+  font-weight: 700;
+  position: relative;
+  color: #b53f6a;
+}
+.counter > div::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #b15a78;
+}
+
+/* Popup ngày kỷ niệm */
+#anniversaryPopup {
+  display: none;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff5e7e;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(255, 94, 126, 0.7);
+  cursor: pointer;
+  user-select: none;
+  z-index: 9999;
+}
+
+/* Hiệu ứng trái tim */
+.heart {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: #ff3c6e;
+  transform: rotate(-45deg);
+  left: 50%;
+  top: 50%;
+  animation: floatUp 2s ease forwards;
+  z-index: 10000;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #ff3c6e;
+  border-radius: 50%;
+}
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+.heart::after {
+  left: 15px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + 60px), calc(-150% - 80px)) scale(1.5) rotate(-45deg);
+  }
+}
